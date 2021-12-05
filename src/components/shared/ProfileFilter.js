@@ -1,38 +1,15 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext } from "react";
 import ProfileContext from "../context/profile/profileContext";
 import { NavLink } from "react-router-dom";
 
 const ProfileFilter = () => {
   const profileContext = useContext(ProfileContext);
-  const { filterProfiles, clearFilter, filtered,loading, getAllProfiles, AllProfiles } = profileContext;
-  const text = useRef("");
-
-  useEffect(() => {
-    if (filtered === null) {
-      text.current.value = "";
-    }
-    getAllProfiles()
-  });
-
-  const onChange = (e) => {
-    if (text.current.value !== "") {
-      filterProfiles(e.target.value);
-    } else {
-      clearFilter();
-    }
-  };
+  const { filtered, loading } = profileContext;
 
   return (
-    <form>
-      <input
-        ref={text}
-        type="text"
-        placeholder="search contacts"
-        onChange={onChange}
-      />
-       <section className="allProfiles">
+    <section className="filteredProfiles">
       {filtered !== null && !loading ? (
-        <div>
+        <div className='filter-container'>
           {filtered.map((profile, key) => (
             <div className="showcase-details" key={profile._id}>
               <div
@@ -42,7 +19,7 @@ const ProfileFilter = () => {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
-                className="showcase-img-container"
+                className="filter-img-container"
               >
                 {/* <img alt="" src={profile.imageLink}></img> */}
               </div>
@@ -59,30 +36,26 @@ const ProfileFilter = () => {
                   <p className="dates">
                     Date of Death : <span> {profile.dateofDeath}</span>
                   </p>
-
-                  <p>
-                    Date Created :
-                    <span>
-                      {new Date(profile.date).toISOString().substring(0, 10)}
-                    </span>
-                  </p>
                 </div>
               </div>
               <div className="edit-show-delete">
-                {/* <NavLink className="showProfile" >Show profile</NavLink>
-                <NavLink   className="editProfile">Edit profile</NavLink> */}
-                <NavLink className="showProfile" to={`/search/${profile._id}`}>Show profile</NavLink>
-                <NavLink className="deleteProfile"  to={`/addNotes/${profile._id}`}>ADD NOTES</NavLink>
+                <NavLink className="showProfile" to={`/search/${profile._id}`}>
+                  Show profile
+                </NavLink>
+                <NavLink
+                  className="deleteProfile"
+                  to={`/addNotes/${profile._id}`}
+                >
+                  ADD NOTES
+                </NavLink>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        ''
+        ""
       )}
     </section>
-    </form>
-    
   );
 };
 

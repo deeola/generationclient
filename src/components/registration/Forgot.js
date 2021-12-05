@@ -1,28 +1,31 @@
-import React from "react";
-import background from "../../assets/loginbackground.jpeg";
+import React, { useState } from "react";
+import Navbar from "../shared/Navbar";
 
 const Forgot = () => {
-  const mystyle = {
-    backgroundImage: `url(${background})`,
-    width: "100%",
-    height: "65vh",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  };
+  const [status, setStatus] = useState(false);
 
   return (
-    <section className="login" style={mystyle}>
-      <div className="forgot-container">
-        <p>A recovery link has been sent to your email</p>
-        <form>
-          <div className="form-control">
-            <input placeholder="please enter your email" type="email"></input>
-          </div>
-          <button className='recover-button' type="submit">SEND</button>
-        </form>
-      </div>
-    </section>
+    <div className="container-nav">
+   
+      <section>
+        <div className="forgot-container">
+          {status ? (
+            <p>A recovery link has been sent to your email</p>
+          ) : (
+            <p>Please enter your email to reset your password</p>
+          )}
+
+          <form>
+            <div className="form-control">
+              <input placeholder="email" type="email"></input>
+            </div>
+            <button className="recover-button" type="submit">
+              RECOVER PASSWORD
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
   );
 };
 

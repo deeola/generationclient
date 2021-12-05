@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import normalpicture from "../../assets/about2.jpeg";
 import ProfileContext from "../context/profile/profileContext";
 import Spinner from "../shared/Spinner";
+import candle from "../../assets/logos/candle.png";
+import imageOne from "../../assets/about1.jpeg";
 
 const Showcase = () => {
   const profileContext = useContext(ProfileContext);
-  const { profiles, getProfiles, loading, uploadedFile, filtered } = profileContext;
-
-
+  const { profiles, getProfiles, loading } = profileContext;
 
   useEffect(() => {
     getProfiles();
@@ -16,27 +16,18 @@ const Showcase = () => {
   }, []);
 
   const { id } = useParams();
-  console.log(id);
-
-  profiles.map((profile) => {
-    if (profile._id === id) {
-      console.log(profile.longMessage);
-    } else {
-      console.log("nothong");
-    }
-  });
-
-  console.log(profiles)
 
   return (
-    <div>
-      {profiles.length === 0  ? (
-        <div>
+    <section className="showcase">
+      {profiles.length === 0 ? (
+        <div className="create-a-profile">
           Please add a profile
-          <NavLink to="/create-profile">Create a page</NavLink>
+          <NavLink className="myLink" to="/create-profile">
+            Create a page
+          </NavLink>
         </div>
       ) : (
-        <div>
+        <div className="showcase-details">
           {profiles.length !== 0 && !loading ? (
             <div>
               {profiles.map((profile, key) => (
@@ -44,22 +35,50 @@ const Showcase = () => {
                   {id === profile._id ? (
                     <section className="showcased">
                       <div className="showcaseTop">
+                        <div className="showcasetop-background"></div>
                         <div className="showcaseProfilePicture">
-                          <img src={profile.imageLink} alt="dp"></img>
+                          <img src={imageOne} alt="dp"></img>
                         </div>
                         <div className="showcaseDetails">
                           <h2>
                             {profile.firstname} {profile.lastname}
                           </h2>
-                          <div className="Birth_death">
-                            <p>{profile.dateOfBirth}</p>
-                            <p>-</p>
-                            <p>{profile.dateofDeath}</p>
-                          </div>
+
+                          <p className="Birth_death">
+                            Born {profile.dateOfBirth}, Died on{" "}
+                            {profile.dateofDeath}
+                          </p>
+
                           <p className="showcaseAbout">
                             {profile.profileMessage}
                           </p>
                         </div>
+                      </div>
+                      <div className="candles-main-container">
+                        <div className='candles'>
+                        {profile.comments.map((note, key) => (
+                          <div className="candle-container">
+                            <img alt="candle" src={candle}></img>
+                          </div>
+                        ))}
+                        </div>
+                        <p className='lightCandle'>Light a candle</p>
+                        
+                      </div>
+                      <div className="notes-container">
+                        <p className="awesomenotes">
+                          Here are awesome notes left by the families and well
+                          wishers of {profile.firstname}
+                        </p>
+                        {profile.comments.map((note, key) => (
+                          <div className="notes">
+                            <p className="mainNote">{note.text}</p>
+                            <p className="author">
+                              {" "}
+                              -written by <span> {note.author}</span>
+                            </p>
+                          </div>
+                        ))}
                       </div>
                       <div className="showcaseBottom">
                         <div className="showcaseLeft">
@@ -75,7 +94,9 @@ const Showcase = () => {
                         </div>
                         <div className="showcaseMiddle">
                           <div className="showcaseimagecontainer showcaseTextContainer">
-                            <p>{profile.comments[0].author}</p>
+                          {profile.longMessage}
+                           
+                          
                           </div>
                           <div className="showcaseimagecontainer">
                             <img src={normalpicture} alt="img1"></img>
@@ -98,7 +119,7 @@ const Showcase = () => {
                       </div>
                     </section>
                   ) : (
-                    ""
+                   ''
                   )}
                 </div>
               ))}
@@ -108,7 +129,7 @@ const Showcase = () => {
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

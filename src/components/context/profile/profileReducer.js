@@ -71,9 +71,10 @@ export default (state, action) => {
       return {
         ...state,
         filtered: state.AllProfiles.filter((profile) => {
-          const regex = new RegExp(`${action.payload}`, "gi");
+          const regex = new RegExp(`${action.payload.name}`, "gi");
+          const regexDate = new RegExp(`${action.payload.date}`, "gi");
           return (
-            profile.firstname.match(regex) || profile.lastname.match(regex) || profile.dateOfBirth.match(regex)
+            profile.firstname.match(regex) || profile.lastname.match(regex) && profile.dateOfBirth.match(regexDate)
           );
         }),
       };

@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect, useState } from "react";
-import { v4 as uuid } from "uuid";
 import ProfileContext from "./profileContext";
 import profileReducer from "./profileReducer";
 import axios from "axios";
@@ -15,7 +14,6 @@ import {
   CLEAR_FILTER,
   CONTACT_ERROR,
   GET_PROFILES,
-  CLEAR_PROFILES,
   GET_ALLPROFILES,
   ADD_NOTES
 } from "../types";
@@ -153,6 +151,19 @@ useEffect(() => {
     }
   };
 
+  //get notes
+
+  // const getNotes = async (id) => {
+  //   try {
+  //     const res = await axios.get("/search");
+     
+  //     dispatch({ type: GET_ALLPROFILES, payload: res.data });
+      
+  //   } catch (err) {
+  //     dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+  //   }
+  // }
+
  
 
 
@@ -198,14 +209,16 @@ useEffect(() => {
   };
 
   //filter profiles
-  const filterProfiles = (text) => {
-    dispatch({ type: FILTER_PROFILES, payload: text });
+  const filterProfiles = (users) => {
+    dispatch({ type: FILTER_PROFILES, payload: users });
+    console.log(users)
   };
 
   //clear filter
   const clearFilter = () => {
     dispatch({ type: CLEAR_FILTER });
   };
+  
 
   
 

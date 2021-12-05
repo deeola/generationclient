@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import axios from "axios";
+import useSubscribe from '../registration/useSubscribe'
+import ValidateSubscribe from "../registration/ValidateSubscribe";
 
 const Footer = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const SubmitSubscribe = () => {
+    setIsSubmitted(true);
+  };
+
+  const { subscribeValues, handleChangeSubscribe, onSubmitSubscribe, error } = useSubscribe(
+    SubmitSubscribe,
+    ValidateSubscribe
+  );
+
+  const { email } = subscribeValues;
   return (
     <footer>
       <div className="footerLeft">
@@ -13,48 +28,71 @@ const Footer = () => {
           escape from the pain of being cillum in pain, no result.
         </p>
 
-        <form className="newsletter">
+        <form className="newsletter" onSubmit={onSubmitSubscribe}>
           <div className="form-control">
-            <input placeholder="Für Newsletter anmelden"></input>
-            <button>Abschicken</button>
+            <input
+              placeholder="E-mail"
+              type="email"
+              onChange={handleChangeSubscribe}
+              id="email"
+              name="email"
+              value={email}
+            ></input>
+            <button type="submit">SUBSCRIBE</button>
           </div>
         </form>
       </div>
       <div className="footerRight">
-       
-          <ul>
-            <li>
-              <a href="/">Homepage</a>
-            </li>
-            <li>
-              <a href="/">About us</a>
-            </li>
-            <li>
-              <a href="/">Shop</a>
-            </li>
-            <li>
-              <a href="/">Contact</a>
-            </li>
-          </ul>
-      
+        <ul>
+          <li>
+            <NavLink className="navlink" to="/">
+              Homepage
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/about">
+              About us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/shop">
+              Shop
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navlink" to="/contact">
+              Contact
+            </NavLink>
+          </li>
+        </ul>
 
         <ul>
           <li>
-            <a href=".">Impressum</a>
+            <NavLink className="navlink" to="/">
+              Impressum
+            </NavLink>
           </li>
           <li>
-            <a href=".">Data Protection</a>
+            <NavLink to="/" className="navlink">
+              Data Protection
+            </NavLink>
           </li>
           <li>
-            <a href=".">AGB's</a>
+            <NavLink to="/" className="navlink">
+              AGB's
+            </NavLink>
           </li>
         </ul>
         <ul>
           <li>
-            <a href=".">Login</a>
+            <NavLink to="/login" className="navlink">
+              Login
+            </NavLink>
           </li>
           <li>
-            <a href=".">Register</a>
+            <NavLink to="/register" className="navlink">
+              Register
+            </NavLink>
           </li>
         </ul>
       </div>

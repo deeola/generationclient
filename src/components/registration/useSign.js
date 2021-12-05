@@ -14,7 +14,7 @@ const useSign = (callback, ValidateSign) => {
 
 
 const {setAlert} = alertContext;
-  const {register,myerror,clearErrors, isAuthenticated} = authContext
+  const {register,myerror,clearErrors, isAuthenticated, handleSubmitSub} = authContext
 
   //GENERAL
 
@@ -61,9 +61,11 @@ const {setAlert} = alertContext;
     // eslint-disable-next-line
   },[myerror, isAuthenticated, history])
 
-  const onSubmit = (e) => {
+  const onSubmit =  (e) => {
     setError(ValidateSign(values));
-    register(users)
+    // register(users)
+   handleSubmitSub(users.email, users)
+     
     e.preventDefault();
     
     setIsSubmitting(true);
@@ -72,7 +74,7 @@ const {setAlert} = alertContext;
   useEffect(() => {
     if (Object.keys(error).length === 0 && isSubmitting) {
       callback();
-      // history("/Login");
+      history("/");
     }
     // eslint-disable-next-line
   }, [error]);
@@ -82,6 +84,8 @@ const {setAlert} = alertContext;
     values,
     onSubmit,
     error,
+    users,
+    register
   };
 };
 

@@ -6,27 +6,33 @@ import Spinner from "../shared/Spinner";
 
 const ShowcaseAll = () => {
   const profileContext = useContext(ProfileContext);
-  const { profiles, getProfiles, loading, deleteProfile,clearCurrent, updateProfile, setCurrent } = profileContext;
-
+  const {
+    profiles,
+    getProfiles,
+    loading,
+    deleteProfile,
+    clearCurrent,
+    updateProfile,
+    setCurrent,
+  } = profileContext;
 
   //delete
 
   const onDelete = (id) => {
-      deleteProfile(id)
-      clearCurrent()
-  }
+    deleteProfile(id);
+    clearCurrent();
+  };
   const onUpdate = (profile, id) => {
-    setCurrent(profile)
-    updateProfile(id)
-   
-}
+    setCurrent(profile);
+    updateProfile(id);
+  };
 
   useEffect(() => {
     getProfiles();
     //eslint-disable-next-line
   }, []);
 
-  console.log(profiles)
+  console.log(profiles);
 
   return (
     <section className="allProfiles">
@@ -34,7 +40,7 @@ const ShowcaseAll = () => {
         <div>
           {profiles.map((profile, key) => (
             <div className="showcase-details" key={profile._id}>
-              <div
+              {/* <div
                 style={{
                   backgroundImage: `url(${profile.imageLink})`,
                   backgroundSize: "cover",
@@ -43,14 +49,16 @@ const ShowcaseAll = () => {
                 }}
                 className="showcase-img-container"
               >
-                {/* <img alt="" src={profile.imageLink}></img> */}
+               
+              </div> */}
+              <div className='showcase-img-container'>
+                <img src={normalpicture} alt='dp'></img>
               </div>
               <div className="showcase-details-container">
                 <div className="showcase-names">
-                  <p>{profile.firstname}</p>
-                  <p>{profile.lastname}</p>
+                  <p>{profile.firstname} {' '} {profile.lastname}</p>
                 </div>
-                <p className="profilemessage">{profile.profileMessage}</p>
+                <p className="profilemessage"> Comments: <span>{profile.comments.length}</span></p>
                 <div className="dates-container">
                   <p className="dates">
                     Date of Birth : <span>{profile.dateOfBirth}</span>
@@ -68,15 +76,31 @@ const ShowcaseAll = () => {
                 </div>
               </div>
               <div className="edit-show-delete">
-                <NavLink className="showProfile" to={`/showcase/${profile._id}`}>Show profile</NavLink>
-                <NavLink to='/create-profile' onClick={() => onUpdate(profile, profile._id)}  className="editProfile">Edit profile</NavLink>
-                <p onClick={() => onDelete(profile._id)} className="deleteProfile">Delete profile</p>
+                <div className="showProfile">
+                  <NavLink to={`/showcase/${profile._id}`}>
+                    Show profile
+                  </NavLink>
+                </div>
+                <div className="editProfile">
+                  <NavLink
+                    to="/create-profile"
+                    onClick={() => onUpdate(profile, profile._id)}
+                  >
+                    Edit profile
+                  </NavLink>
+                </div>
+                <div className="deleteProfile">
+                  <p onClick={() => onDelete(profile._id)}>Delete profile</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <div>Please create a profile</div>
+        <div className='create-profile'>
+          <p>Please create a profile</p>
+          <NavLink className='myLink' to='/create-profile'>Click Here</NavLink>
+        </div>
       )}
     </section>
   );

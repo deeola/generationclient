@@ -83,7 +83,7 @@ const SearchResult = () => {
                                  profile.comments.map(eachComment => (
                                    <div >
                                       <p>{eachComment.message}</p>
-                                <p>{eachComment.author}</p>
+                                      <p>{eachComment.author}</p>
                                    </div>
                                  ))
 

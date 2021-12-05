@@ -1,0 +1,100 @@
+@media (min-width: 1024px) {
+  body {
+    max-width: 1600px;
+    margin: auto;
+  }
+
+  //NAVBAR
+  .navbar {
+    @include Displayflex(row, space-between, center);
+    z-index: 10;
+    width: 95%;
+    margin: auto;
+    position: relative;
+
+    //LOGO CONTAINER
+    .logos-container {
+      .desktoplogo {
+        display: none;
+      }
+      .mobilelogo {
+        width: 70px;
+      }
+    }
+
+    .nav-links {
+      position: unset;
+      top: unset;
+      @include widthHeigthBgcolor(100%, space-between, $white);
+      z-index: unset;
+      margin: unset;
+      display: block ;
+      @include Displayflex(row !important, space-between, space-between);
+      padding: unset;
+      border-radius: unset;
+   
+      background-color: sandybrown;
+
+      //constant Links
+      .constantLinks {
+        margin-bottom: unset;
+        @include Displayflex(row, space-between, unset);
+        li {
+          margin-bottom: unset;
+
+          .myLink {
+            color: $black;
+            font-weight: 600;
+          }
+        }
+      }
+
+      //auth Links
+      .authLinks {
+        @include Displayflex(row, space-between, unset);
+
+        li {
+          margin-bottom: unset;
+        }
+
+        .username {
+          text-transform: capitalize;
+        }
+
+        .create-profile-link,
+        .show-profile-link,
+        .logout-link {
+          color: $black;
+          font-weight: 600;
+        }
+      }
+
+      //guest links
+      .guestlinks {
+        @include Displayflex(row, space-between, unset);
+        li {
+          margin-bottom: 10px;
+          .register,
+          .logins {
+            color: $black;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .logoText {
+      color: $black;
+      font-weight: 600;
+      letter-spacing: 3px;
+      width: 60%;
+      text-align: center;
+    }
+
+    //hamburgers-container
+
+    .hamburgers-container {
+      display: none;
+    }
+  }
+}

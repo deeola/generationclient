@@ -1,8 +1,10 @@
 import React from "react";
 
+
 const Contact = () => {
   return (
-    <section>
+    <div className='container-nav'>
+      <section>
       <div className="contact-upper">
         <h1>HAVE SOME QUESTIONS?</h1>
         <p>
@@ -18,11 +20,13 @@ const Contact = () => {
           <input type="text" placeholder="subject"></input>
         </div>
         <div className="form-control">
-          <textarea name="textarea" rows="10" cols="50"></textarea>
+          <textarea name="textarea" rows="10" cols="50" placeholder='please type your message here'></textarea>
         </div>
         <button type='submit' >Submit</button>
       </form>
     </section>
+    </div>
+    
   );
 };
 

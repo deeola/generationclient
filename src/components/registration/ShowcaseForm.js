@@ -14,11 +14,7 @@ function ShowcaseForm() {
   const { current,clearCurrent } = profileContext;
 
   console.log(current)
-  // useEffect(() => {
-  //   if(current !== null){
 
-  //   }
-  // })
 
   const clearAll = () => {
     clearCurrent()
@@ -55,7 +51,8 @@ function ShowcaseForm() {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     borderBottomRightRadius: '50%',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    color : 'white'
 
 
   };
@@ -143,10 +140,7 @@ function ShowcaseForm() {
           {error.longMessage && <p className="error">{error.longMessage}</p>}
         </div>
         </div>
-        <button type="submit">{current  === null ?'CREATE PROFILE' : 'UPDATE PROFILE'}</button>
-        {current && <div>
-          <button onClick={clearAll}></button>
-        </div> }
+        <button className='submit-btn' type="submit">{current  === null ?'CREATE PROFILE' : 'UPDATE PROFILE'}</button>
       </form>
     </section>
   );

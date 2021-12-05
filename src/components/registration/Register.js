@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import useSign from "./useSign";
 import ValidateSign from "./ValidateSign";
 import background from "../../assets/loginbackground.jpeg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Navbar from "../shared/Navbar";
+import HomePayment from "../payment/HomePayment";
 
 const Register = () => {
   const [signuptrue, setSignuptrue] = useState(false);
@@ -30,7 +32,9 @@ const Register = () => {
   };
 
   return (
-    <section className="login registration" style={mystyle}>
+    <div className='container-nav'>
+  
+      <section className="login registration" style={mystyle}>
       <div className="login-container register">
         <h1>Register</h1>
 
@@ -79,15 +83,19 @@ const Register = () => {
             ></input>
             {error.password2 && <p className="error">{error.password2}</p>}
           </div>
+          <HomePayment />
           <button type="submit">Register</button>
         </form>
+        
         <div className="forgot-register">
           <p>Already has an account? </p>
-          <Link className='login-register' to="/login">Login</Link>
+          <NavLink className='login-register' to="/login">Login</NavLink>
           
         </div>
       </div>
     </section>
+    </div>
+    
   );
 };
 

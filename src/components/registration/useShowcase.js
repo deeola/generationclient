@@ -96,7 +96,7 @@ const useShowcase = (callback, ValidateShowcase) => {
   useEffect(() => {
     if (Object.keys(error).length === 0 && isSubmitting) {
       callback();
-      history("/showcase");
+      history("/showcase-all");
     }
     // eslint-disable-next-line
   }, [error]);

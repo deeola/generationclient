@@ -1,5 +1,395 @@
-@media (max-width: 768px) {
-body{
-    display: none;
-}
+@media (min-width: 768px) {
+  //NAVBAR
+  .navbar {
+    .logos-container {
+      .mobilelogo {
+        width: 80px;
+      }
+    }
+
+    .nav-links {
+      top: 8.4vh;
+    }
+
+    .logoText {
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  //HEADER
+  header {
+    .hero-container {
+      width: 80%;
+      .search-form {
+        form {
+          .form-control {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+
+  //showcase
+
+  .showcase {
+    @include Displayflex(row, space-between, center);
+    margin-bottom: 30px;
+    .leftShowcase {
+      background-color: unset;
+      padding: unset;
+      width: 25%;
+    }
+
+    .showcaseImage {
+      margin-top: unset;
+      width: 70%;
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  //advantages
+
+  .advantages {
+    .advantages-container {
+      margin: 30px 0px;
+      .advantages-flex-top,
+      .advantages-flex-bottom {
+        @include Displayflex(row, space-between, unset);
+        .flex-top-container {
+          @include Displayflex(column, space-between, center);
+          width: 20%;
+          .fas-container {
+            background: unset;
+            @include Displayflex(column, space-between, unset);
+            i {
+              color: $black;
+              margin-bottom: 5px;
+            }
+            h4 {
+              color: $black;
+              font-size: 14px;
+            }
+          }
+
+          .flex-text-container {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  //testimonial
+
+  .testimonial {
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 80%;
+      position: absolute;
+      background: linear-gradient(135deg, #408fae 0%, #55b5a7 100%);
+      z-index: -1;
+      top: 35px;
+      left: 0;
+    }
+
+    .testimonial-container {
+      @include Displayflex(row, space-between, center);
+      position: relative;
+    }
+
+    .testimonial-image {
+      width: 30%;
+
+      img {
+        border-radius: 5px;
+      }
+    }
+
+    .testimonialText {
+      position: relative;
+      margin-top: 20px;
+      width: 60%;
+
+      .testimonial-title {
+        color: $white;
+
+        margin-bottom: 20px;
+      }
+
+      .testimonial-para {
+        color: $white;
+      }
+
+      .testimonialName {
+        color: $white;
+
+        span {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  //next on here
+  //get started
+
+  .getstarted {
+    width: 93%;
+
+    background-color: unset;
+
+    @include Displayflex(row, space-between, center);
+
+    .getStarted-left {
+      margin-top: unset;
+      width: 45%;
+
+      h3 {
+        margin-bottom: 10px;
+        text-align: unset;
+        color: $black;
+      }
+
+      p {
+        display: block;
+      }
+      .getstarted-link-desktop {
+        display: block;
+        padding: 10px 10px;
+        border-radius: 5px;
+        background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+        text-transform: capitalize;
+        color: $white;
+        width: 50%;
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+
+    .getStarted-right {
+      margin-bottom: unset;
+      width: 50%;
+      background-color: $orange;
+      padding: 20px 10px;
+      border-radius: 10px;
+
+      .getstarted-instruct {
+        @include Displayflex(row, space-between, center);
+
+        .instruct-container {
+          margin-top: unset;
+          margin-left: 20px;
+          h5 {
+            color: $white;
+            text-transform: capitalize;
+            font-size: 18px;
+          }
+          p {
+            color: rgb(240, 236, 236);
+            margin: 10px 0px;
+          }
+        }
+      }
+    }
+
+    .getstarted-link-mobile {
+      display: none;
+    }
+  }
+
+  //createpage
+
+  .createpage {
+    .createpage-container {
+      @include Displayflex(row, space-between, center);
+    }
+    .createpage-subtext {
+      text-align: center;
+    }
+
+    .createpageleft {
+      width: 80%;
+      padding: 10px;
+
+      h3 {
+        text-align: unset;
+        margin-bottom: 10px;
+      }
+
+      .create-advantages {
+        margin: unset;
+
+        .advan-container {
+          @include Displayflex(row, space-between, center);
+          margin: 20px 0px;
+
+          .advan-line {
+            width: 100%;
+
+            margin: unset;
+          }
+        }
+
+        .advantages-text-container {
+          .advantages-left,
+          .advantages-right {
+            @include Displayflex(row, space-between, center);
+            .advantages-details {
+              margin-bottom: 10px;
+
+              @include Displayflex(row, unset, center);
+              width: 100%;
+              i {
+                text-align: left;
+              }
+
+              p {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .createpageright {
+      margin-top: unset;
+    }
+  }
+
+  //ready
+
+  .ready {
+    .readyText {
+      left: 90px;
+      top: 100px;
+
+      .download-register {
+        @include Displayflex(row, space-between, unset);
+        width: 60%;
+        margin: 20px auto;
+
+        a {
+          width: 80%;
+        }
+
+        p {
+          margin: 10px;
+        }
+      }
+    }
+  }
+
+  // //Footer
+
+  footer {
+    margin: 30px auto 20px auto;
+
+    flex-direction: row;
+
+    .footerLeft {
+      @include Displayflex(column, space-between, unset);
+
+      .footerlogo {
+        width: 100%;
+      }
+
+      .footerText {
+        margin-top: 10px;
+        text-align: unset;
+      }
+
+      form {
+        .form-control {
+          display: flex;
+          input {
+            margin-bottom: unset;
+          }
+
+          button {
+            padding: 10px 10px;
+
+            font-size: 14px;
+
+            width: 30%;
+          }
+        }
+      }
+    }
+
+    .footerRight {
+      margin-top: unset;
+      margin-left: 30px;
+
+      ul {
+        li {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  //ABOUT US PAGE
+
+  .about {
+    .about-upper {
+      padding-top: 10px;
+    }
+
+    .about-image-container {
+      margin: 50px auto 100px auto;
+      @include Displayflex(row, space-between, unset);
+
+      div {
+        width: 30%;
+      }
+    }
+  }
+
+  //SHOWCASE ALL
+
+  .allProfiles {
+    width: 50%;
+    min-height: 60vh;
+
+    margin: auto;
+
+    .showcase-details {
+      .edit-show-delete {
+        flex-direction: row;
+      }
+    }
+  }
+
+  //showcase
+
+  .showcase {
+    .showcaseTextContainer {
+      display: block;
+    }
+
+    .showcaseMiddle,
+    .showcaseLeft,
+    .showcaseRight {
+      @include Displayflex(column, space-between, unset);
+      width: 30%;
+      margin: 0px auto;
+    }
+
+    
+
+    .showcaseBottom {
+      display: flex;
+    }
+
+   
+  }
 }

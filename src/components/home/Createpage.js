@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CreatePage = () => {
   return (
@@ -6,7 +7,7 @@ const CreatePage = () => {
       <h3 className="createpage-header">All beautiful moments in one place</h3>
       <p className="createpage-subtext">
         The pain itself is fun, it's been easier to be safe over the years, but
-        it's still time
+        it's still time.
       </p>
       <div className="createpage-container">
         <div className="createpageleft">
@@ -56,8 +57,8 @@ const CreatePage = () => {
         <div className="createpageright">
           <p className='page-price-text'>Einen Monat kostenlos, danach</p>
           <p className='page-price'>€7,99</p>
-          <a className='seite-price' href="/">Seite erstellen </a>
-          <a className='beipielseite' href="/">Beispielseite ansehen</a>
+          <NavLink className='seite-price' to='/register'>Seite erstellen </NavLink>
+        
         </div>
       </div>
     </section>
@@ -65,3 +66,4 @@ const CreatePage = () => {
 };
 
 export default CreatePage;
+

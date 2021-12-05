@@ -1,16 +1,18 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Getstarted = () => {
   return (
     <section className="getstarted">
       <div className="getStarted-left">
-        <h3>Get started in three easy steps</h3>
+        <h3>In drei einfachen Schritten anfangen</h3>
         <p>
           The pain itself is a lot of pain, it's been easier to be sure it's
           been easier, but it is time to get the pain and the pain is exciting
           per month
         </p>
-        <a href="/">GET STARTED</a>
+        <NavLink className='getstarted-link-desktop' to='/register'>GET STARTED</NavLink>
+    
       </div>
       <div className="getStarted-right">
         <div className="getstarted-instruct">
@@ -44,6 +46,7 @@ const Getstarted = () => {
           </div>
         </div>
       </div>
+      <NavLink className='getstarted-link-mobile' to='/register'>GET STARTED</NavLink>
     </section>
   );
 };
