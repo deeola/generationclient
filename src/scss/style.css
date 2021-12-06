@@ -909,6 +909,20 @@ footer .footerRight ul li .navlink {
   width: 80%;
 }
 
+.registration .register .register-left {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.registration .register .register-left p {
+  font-size: 12px;
+}
+
+.registration .register .register-left button {
+  display: none;
+}
+
 .registration .login-register {
   margin-top: 5px;
   color: black;
@@ -1082,14 +1096,53 @@ footer .footerRight ul li .navlink {
   min-height: 50vh;
 }
 
-.filteredProfiles .filter-container {
-  background-color: wheat;
-}
-
 .filteredProfiles .filter-container .showcase-details .filter-img-container {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.filteredProfiles .filter-container .showcase-details .showcase-names {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.filteredProfiles .filter-container .showcase-details .profilemessage {
+  font-size: 12px;
+  text-align: center;
+}
+
+.filteredProfiles .filter-container .showcase-details .dates-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.filteredProfiles .filter-container .showcase-details .show-note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
+  margin: 20px auto;
+}
+
+.filteredProfiles .filter-container .showcase-details .show-note .showProfile {
+  padding: 10px 10px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+  text-transform: capitalize;
+  color: white;
+}
+
+.filteredProfiles .filter-container .showcase-details .show-note .addNote {
+  padding: 10px 10px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+  text-transform: capitalize;
+  color: white;
+  cursor: pointer;
 }
 
 .userprofile {
@@ -1312,22 +1365,22 @@ footer .footerRight ul li .navlink {
   background-color: silver;
 }
 
-.showcase {
+.showcaseResult, .searchResult {
   width: 93%;
   margin: 20px auto auto auto;
 }
 
-.showcase .showcaseTop {
+.showcaseResult .showcaseTop, .searchResult .showcaseTop {
   margin-bottom: 20px;
 }
 
-.showcase .showcaseTop .showcasetop-background {
+.showcaseResult .showcaseTop .showcasetop-background, .searchResult .showcaseTop .showcasetop-background {
   background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
   height: 80px;
   position: relative;
 }
 
-.showcase .showcaseTop .showcaseProfilePicture {
+.showcaseResult .showcaseTop .showcaseProfilePicture, .searchResult .showcaseTop .showcaseProfilePicture {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1338,62 +1391,62 @@ footer .footerRight ul li .navlink {
   position: relative;
 }
 
-.showcase .showcaseTop .showcaseProfilePicture img {
+.showcaseResult .showcaseTop .showcaseProfilePicture img, .searchResult .showcaseTop .showcaseProfilePicture img {
   border-radius: 50%;
   width: 100px;
   height: 100px;
 }
 
-.showcase .showcaseTop .showcaseDetails {
+.showcaseResult .showcaseTop .showcaseDetails, .searchResult .showcaseTop .showcaseDetails {
   margin-top: 10px;
   text-align: center;
   position: relative;
   top: -40px;
 }
 
-.showcase .showcaseTop .showcaseDetails .Birth_death {
+.showcaseResult .showcaseTop .showcaseDetails .Birth_death, .searchResult .showcaseTop .showcaseDetails .Birth_death {
   margin-top: 10px;
 }
 
-.showcase .showcaseTop .showcaseDetails .showcaseAbout {
+.showcaseResult .showcaseTop .showcaseDetails .showcaseAbout, .searchResult .showcaseTop .showcaseDetails .showcaseAbout {
   color: #d87d4a;
 }
 
-.showcase .showcaseTextContainer {
+.showcaseResult .showcaseTextContainer, .searchResult .showcaseTextContainer {
   display: none;
 }
 
-.showcase .notes-container {
+.showcaseResult .notes-container, .searchResult .notes-container {
   padding: 30px 10px;
 }
 
-.showcase .notes-container .awesomenotes {
+.showcaseResult .notes-container .awesomenotes, .searchResult .notes-container .awesomenotes {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.showcase .notes-container .notes {
+.showcaseResult .notes-container .notes, .searchResult .notes-container .notes {
   background-color: white;
   margin-bottom: 10px;
   -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.showcase .notes-container .notes .mainNote {
+.showcaseResult .notes-container .notes .mainNote, .searchResult .notes-container .notes .mainNote {
   margin-bottom: 3px;
 }
 
-.showcase .notes-container .notes .author {
+.showcaseResult .notes-container .notes .author, .searchResult .notes-container .notes .author {
   font-style: italic;
   font-size: 12px;
 }
 
-.showcase .notes-container .notes .author span {
+.showcaseResult .notes-container .notes .author span, .searchResult .notes-container .notes .author span {
   text-transform: capitalize;
   color: #d87d4a;
 }
 
-.showcase .candles-main-container {
+.showcaseResult .candles-main-container, .searchResult .candles-main-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1405,14 +1458,14 @@ footer .footerRight ul li .navlink {
           align-items: center;
 }
 
-.showcase .candles-main-container .candles {
+.showcaseResult .candles-main-container .candles, .searchResult .candles-main-container .candles {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 50%;
 }
 
-.showcase .candles-main-container .lightCandle {
+.showcaseResult .candles-main-container .lightCandle, .searchResult .candles-main-container .lightCandle {
   width: 30%;
   padding: 8px;
   font-size: 12px;
@@ -1423,6 +1476,65 @@ footer .footerRight ul li .navlink {
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+}
+
+.addNotes {
+  width: 93%;
+  margin: 20px auto auto auto;
+}
+
+.addNotes .note-container .note-upper {
+  text-align: center;
+  margin: 20px 0px;
+  background: cornflowerblue;
+  padding: 20px 30px;
+}
+
+.addNotes .note-container .note-upper p {
+  color: white;
+}
+
+.addNotes .note-container .note-lower form .form-control {
+  width: 100%;
+  margin: auto;
+}
+
+.addNotes .note-container .note-lower form .form-control input {
+  width: 100%;
+  margin: auto auto 10px auto;
+  height: 40px;
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #272727;
+}
+
+.addNotes .note-container .note-lower form .form-control textarea {
+  width: 100%;
+  margin: auto auto 10px auto;
+  border: 1px solid #272727;
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.addNotes .note-container .note-lower form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.searchResult {
+  width: 93%;
+  margin: 20px auto auto auto;
 }
 
 @media (min-width: 768px) {
@@ -1871,12 +1983,14 @@ footer .footerRight ul li .navlink {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .showcase .showcaseTextContainer {
+  .showcaseResult .showcaseTextContainer, .searchResult .showcaseTextContainer {
     display: block;
   }
-  .showcase .showcaseMiddle,
-  .showcase .showcaseLeft,
-  .showcase .showcaseRight {
+  .showcaseResult .showcaseMiddle,
+  .showcaseResult .showcaseLeft,
+  .showcaseResult .showcaseRight, .searchResult .showcaseMiddle,
+  .searchResult .showcaseLeft,
+  .searchResult .showcaseRight {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1893,7 +2007,7 @@ footer .footerRight ul li .navlink {
     width: 30%;
     margin: 0px auto;
   }
-  .showcase .showcaseBottom {
+  .showcaseResult .showcaseBottom, .searchResult .showcaseBottom {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1923,6 +2037,7 @@ footer .footerRight ul li .navlink {
     width: 95%;
     margin: auto;
     position: relative;
+    padding: 20px 0px;
   }
   .navbar .logos-container .desktoplogo {
     display: none;
@@ -1942,10 +2057,10 @@ footer .footerRight ul li .navlink {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1954,7 +2069,7 @@ footer .footerRight ul li .navlink {
             align-items: space-between;
     padding: unset;
     border-radius: unset;
-    background-color: sandybrown;
+    display: flex !important;
   }
   .navbar .nav-links .constantLinks {
     margin-bottom: unset;
@@ -1971,6 +2086,9 @@ footer .footerRight ul li .navlink {
     -webkit-box-align: unset;
         -ms-flex-align: unset;
             align-items: unset;
+    width: 55%;
+    margin: auto;
+    padding: unset;
   }
   .navbar .nav-links .constantLinks li {
     margin-bottom: unset;
@@ -1993,12 +2111,19 @@ footer .footerRight ul li .navlink {
     -webkit-box-align: unset;
         -ms-flex-align: unset;
             align-items: unset;
+    width: 70%;
+    margin: unset;
+    padding: unset;
+    margin-left: 40px;
   }
   .navbar .nav-links .authLinks li {
     margin-bottom: unset;
   }
   .navbar .nav-links .authLinks .username {
     text-transform: capitalize;
+    font-size: 10px;
+    color: #d87d4a;
+    font-weight: 700;
   }
   .navbar .nav-links .authLinks .create-profile-link,
   .navbar .nav-links .authLinks .show-profile-link,
@@ -2020,9 +2145,11 @@ footer .footerRight ul li .navlink {
     -webkit-box-align: unset;
         -ms-flex-align: unset;
             align-items: unset;
+    width: 30%;
+    margin: unset;
   }
   .navbar .nav-links .guestlinks li {
-    margin-bottom: 10px;
+    margin-bottom: unset;
   }
   .navbar .nav-links .guestlinks li .register,
   .navbar .nav-links .guestlinks li .logins {
@@ -2033,11 +2160,66 @@ footer .footerRight ul li .navlink {
     color: #272727;
     font-weight: 600;
     letter-spacing: 3px;
-    width: 60%;
+    width: 30%;
     text-align: center;
   }
   .navbar .hamburgers-container {
     display: none;
+  }
+  header {
+    border-radius: 0px 0px 300px 0px;
+  }
+  header::after {
+    border-radius: 0px 0px 300px 0px;
+  }
+  header .hero-container .search-form form .form-control {
+    width: 40%;
+  }
+  .showcase .leftShowcase {
+    width: 50%;
+  }
+  .showcase .showcaseImage {
+    width: 50%;
+  }
+  .registration .register {
+    width: 80%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .registration .register .register-left {
+    text-align: center;
+    width: 40%;
+    margin: auto auto auto 0px;
+  }
+  .registration .register .register-left h2 {
+    text-align: left;
+  }
+  .registration .register .register-left p {
+    font-size: 12px;
+    text-align: left;
+    margin: 10px 0px;
+  }
+  .registration .register .register-left button {
+    display: block;
+    background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+    text-shadow: 0px 0px 10px rgba(122, 122, 122, 0.25);
+    font-size: 14px;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 30px;
+  }
+  .registration .register .register-right {
+    width: 50%;
+  }
+  .registration .login-register {
+    margin-top: 5px;
+    color: black;
+    font-weight: 600;
   }
 }
 /*# sourceMappingURL=style.css.map */

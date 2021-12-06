@@ -8,17 +8,23 @@ import imageOne from "../../assets/about1.jpeg";
 
 const Showcase = () => {
   const profileContext = useContext(ProfileContext);
-  const { profiles, getProfiles, loading } = profileContext;
+  const { profiles, getProfiles, loading, lightCandles, candles } = profileContext;
 
   useEffect(() => {
     getProfiles();
     //eslint-disable-next-line
-  }, []);
+  }, [profiles.candles]);
+
+  
 
   const { id } = useParams();
 
+  const lightCandlesclient = () => {
+  lightCandles(id)
+  }
+
   return (
-    <section className="showcase">
+    <section className="showcaseResult">
       {profiles.length === 0 ? (
         <div className="create-a-profile">
           Please add a profile
@@ -56,13 +62,16 @@ const Showcase = () => {
                       </div>
                       <div className="candles-main-container">
                         <div className='candles'>
-                        {profile.comments.map((note, key) => (
-                          <div className="candle-container">
+                        {profile.candles.map((note, key) => (
+                          <div key={key} className="candle-container">
                             <img alt="candle" src={candle}></img>
                           </div>
                         ))}
                         </div>
-                        <p className='lightCandle'>Light a candle</p>
+                        <h1>
+                          {profile.candles.length}
+                        </h1>
+                        <p className='lightCandle' onClick={() => lightCandlesclient( id)}>Light a candle</p>
                         
                       </div>
                       <div className="notes-container">
@@ -72,7 +81,7 @@ const Showcase = () => {
                         </p>
                         {profile.comments.map((note, key) => (
                           <div className="notes">
-                            <p className="mainNote">{note.text}</p>
+                            <p className="mainNote">{note.message}</p>
                             <p className="author">
                               {" "}
                               -written by <span> {note.author}</span>

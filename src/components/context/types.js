@@ -22,3 +22,4 @@ export const GET_PROFILES = 'GET_PROFILES';
 export const CLEAR_PROFILES = 'CLEAR_PROFILES';
 export const GET_ALLPROFILES = 'GET_ALLPROFILES';
 export const ADD_NOTES = 'ADD_NOTES';
+export const LIGHT_CANDLE = 'LIGHT_CANDLE'

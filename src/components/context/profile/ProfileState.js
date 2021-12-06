@@ -15,7 +15,8 @@ import {
   CONTACT_ERROR,
   GET_PROFILES,
   GET_ALLPROFILES,
-  ADD_NOTES
+  ADD_NOTES,
+  LIGHT_CANDLE
 } from "../types";
 
 const ProfileState = (props) => {
@@ -25,8 +26,14 @@ const ProfileState = (props) => {
     filtered: null,
     error: null,
     AllProfiles : [],
-    notes : []
+    notes : [],
+   
+    
   };
+
+  //candles
+
+  let candles  = []
 
  
 
@@ -151,6 +158,38 @@ useEffect(() => {
     }
   };
 
+
+  //  Light Candles
+  const lightCandles = async ( id) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const res = await axios.put(`/candle/${id}`, config);
+
+      if(candles.includes(res.data.user)){
+        
+        console.log("it's not there")
+      } else {
+        candles.push(res.data.user)
+        console.log("it's   there  now")
+      }
+
+
+      
+      
+
+      console.log(candles.length)
+      
+ 
+    } catch (err) {
+      console.log(err)
+
+    }
+  };
   //get notes
 
   // const getNotes = async (id) => {
@@ -245,7 +284,9 @@ useEffect(() => {
         file,
         onChange,
         getAllProfiles,
-        addNotes
+        addNotes,
+        lightCandles,
+        candles
 
       }}
     >

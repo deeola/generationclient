@@ -3,39 +3,39 @@ import { NavLink, useParams } from "react-router-dom";
 import normalpicture from "../../assets/about2.jpeg";
 import ProfileContext from "../context/profile/profileContext";
 import Spinner from "../shared/Spinner";
+import candle from "../../assets/logos/candle.png";
+import imageOne from "../../assets/about1.jpeg";
 
 const SearchResult = () => {
   const profileContext = useContext(ProfileContext);
-  const { profiles, getProfiles, loading, uploadedFile, filtered } = profileContext;
+  const { profiles, getProfiles, loading, uploadedFile, filtered, candles, lightCandles } =
+    profileContext;
 
   useEffect(() => {
     getProfiles();
     //eslint-disable-next-line
   }, []);
 
+  console.log(filtered)
 
   const { id } = useParams();
 
-
-  filtered.map((profile) => {
-    if (profile._id === id) {
-      console.log(profile.comments[0].message);
-    } else {
-      console.log("nothong");
+  const lightCandlesclient = () => {
+    lightCandles(id)
     }
-  });
-
-
+  
 
   return (
-    <div>
-      {filtered.length === 0  ? (
-        <div>
+    <section className='searchResult'>
+      {filtered.length === 0 ? (
+        <div className="create-a-profile">
           Please add a profile
-          <NavLink to="/create-profile">Create a page</NavLink>
+          <NavLink className="myLink" to="/create-profile">
+            Create a page
+          </NavLink>
         </div>
       ) : (
-        <div>
+        <div className="showcase-details">
           {filtered.length !== 0 && !loading ? (
             <div>
               {filtered.map((profile, key) => (
@@ -43,22 +43,54 @@ const SearchResult = () => {
                   {id === profile._id ? (
                     <section className="showcased">
                       <div className="showcaseTop">
+                        <div className="showcasetop-background"></div>
                         <div className="showcaseProfilePicture">
-                          <img src={profile.imageLink} alt="dp"></img>
+                          <img src={imageOne} alt="dp"></img>
                         </div>
                         <div className="showcaseDetails">
                           <h2>
                             {profile.firstname} {profile.lastname}
                           </h2>
-                          <div className="Birth_death">
-                            <p>{profile.dateOfBirth}</p>
-                            <p>-</p>
-                            <p>{profile.dateofDeath}</p>
-                          </div>
+
+                          <p className="Birth_death">
+                            Born {profile.dateOfBirth}, Died on{" "}
+                            {profile.dateofDeath}
+                          </p>
+
                           <p className="showcaseAbout">
                             {profile.profileMessage}
                           </p>
                         </div>
+                      </div>
+                      <div className="candles-main-container">
+                        <div className='candles'>
+                        {profile.comments.map((note, key) => (
+                          <div className="candle-container">
+                            <img alt="candle" src={candle}></img>
+                          </div>
+                        ))}
+                        </div>
+                        <h1>
+                          {profile.candles.length}
+                        </h1>
+                        <p className='lightCandle' onClick={() => lightCandlesclient( id)}>Light a candle</p>
+                        
+                      </div>
+                      <div className="notes-container">
+                        <p className="awesomenotes">
+                          Here are awesome notes left by the families and well
+                          wishers of {profile.firstname}
+                        </p>
+                     
+                        {profile.comments.map((note, key) => (
+                          <div key={key} className="notes">
+                            <p className="mainNote">{note.message}</p>
+                            <p className="author">
+                              {" "}
+                              -written by <span> {note.author}</span>
+                            </p>
+                          </div>
+                        ))}
                       </div>
                       <div className="showcaseBottom">
                         <div className="showcaseLeft">
@@ -72,24 +104,11 @@ const SearchResult = () => {
                             <img src={normalpicture} alt="img1"></img>
                           </div>
                         </div>
-                       
                         <div className="showcaseMiddle">
                           <div className="showcaseimagecontainer showcaseTextContainer">
-                            {
-                              profile.comments.length === 0 ? (<div>
-                                No comment yet
-                              </div>) :(<div>
-                               {
-                                 profile.comments.map(eachComment => (
-                                   <div >
-                                      <p>{eachComment.message}</p>
-                                      <p>{eachComment.author}</p>
-                                   </div>
-                                 ))
-
-                               }
-                              </div>)
-                            }
+                          {profile.longMessage}
+                           
+                          
                           </div>
                           <div className="showcaseimagecontainer">
                             <img src={normalpicture} alt="img1"></img>
@@ -112,7 +131,7 @@ const SearchResult = () => {
                       </div>
                     </section>
                   ) : (
-                    ""
+                   ''
                   )}
                 </div>
               ))}
@@ -122,7 +141,7 @@ const SearchResult = () => {
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -11,6 +11,7 @@
     width: 95%;
     margin: auto;
     position: relative;
+    padding: 20px 0px;
 
     //LOGO CONTAINER
     .logos-container {
@@ -28,17 +29,20 @@
       @include widthHeigthBgcolor(100%, space-between, $white);
       z-index: unset;
       margin: unset;
-      display: block ;
-      @include Displayflex(row !important, space-between, space-between);
+      display: block;
+      @include Displayflex(row, space-between, space-between);
       padding: unset;
       border-radius: unset;
-   
-      background-color: sandybrown;
+      display: flex !important;
 
       //constant Links
       .constantLinks {
         margin-bottom: unset;
         @include Displayflex(row, space-between, unset);
+
+        width: 55%;
+        margin: auto;
+        padding: unset;
         li {
           margin-bottom: unset;
 
@@ -52,6 +56,11 @@
       //auth Links
       .authLinks {
         @include Displayflex(row, space-between, unset);
+        width: 70%;
+        margin: unset;
+
+        padding: unset;
+        margin-left: 40px;
 
         li {
           margin-bottom: unset;
@@ -59,6 +68,9 @@
 
         .username {
           text-transform: capitalize;
+          font-size: 10px;
+          color: $orange;
+          font-weight: 700;
         }
 
         .create-profile-link,
@@ -72,8 +84,10 @@
       //guest links
       .guestlinks {
         @include Displayflex(row, space-between, unset);
+        width: 30%;
+        margin: unset;
         li {
-          margin-bottom: 10px;
+          margin-bottom: unset;
           .register,
           .logins {
             color: $black;
@@ -87,7 +101,7 @@
       color: $black;
       font-weight: 600;
       letter-spacing: 3px;
-      width: 60%;
+      width: 30%;
       text-align: center;
     }
 
@@ -95,6 +109,89 @@
 
     .hamburgers-container {
       display: none;
+    }
+  }
+
+  //HEADER
+  header {
+    border-radius: 0px 0px 300px 0px;
+
+    //HEADER OVERLAY
+    &::after {
+      border-radius: 0px 0px 300px 0px;
+    }
+
+    //HERO CONTAINER
+
+    .hero-container {
+      .search-form {
+        form {
+          .form-control {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+
+  //showcase
+
+  .showcase {
+    .leftShowcase {
+      width: 50%;
+    }
+
+    .showcaseImage {
+      width: 50%;
+    }
+  }
+
+  // //Register
+
+  .registration {
+    .register {
+      width: 80%;
+      flex-direction: row;
+
+      .register-left {
+        text-align: center;
+        width: 40%;
+        margin: auto auto auto 0px;
+
+        h2 {
+          text-align: left;
+        }
+
+        p {
+          font-size: 12px;
+          text-align: left;
+          margin: 10px 0px;
+        }
+
+        button {
+          display: block;
+          background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+          text-shadow: 0px 0px 10px rgba(122, 122, 122, 0.25);
+          font-size: 14px;
+          color: white;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          padding: 10px 30px;
+        }
+      }
+
+      .register-right {
+        width: 50%;
+      }
+    }
+
+    .login-register {
+      margin-top: 5px;
+      color: black;
+
+      font-weight: 600;
     }
   }
 }

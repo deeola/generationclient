@@ -68,7 +68,7 @@
       li {
         margin-bottom: 10px;
         .register,
-        .logins{
+        .logins {
           color: $black;
           font-weight: 600;
         }
@@ -81,7 +81,7 @@
     font-weight: 600;
     letter-spacing: 3px;
     width: 60%;
-    text-align: center
+    text-align: center;
   }
 
   //hamburgers-container
@@ -222,7 +222,6 @@ header {
         color: $orange;
         font-weight: 600;
       }
-      
     }
   }
 
@@ -285,10 +284,9 @@ header {
 //Testimonial
 
 .testimonial {
-  
   margin: auto;
 
-  .testimonial-container{
+  .testimonial-container {
     width: 93%;
     margin: auto;
   }
@@ -320,8 +318,6 @@ header {
       }
     }
   }
-
-  
 }
 
 //get started
@@ -489,7 +485,6 @@ header {
 .ready {
   position: relative;
   margin-top: 50px;
-
 
   .videocontainer {
     position: relative;
@@ -728,11 +723,26 @@ footer {
 .registration {
   .register {
     width: 80%;
+
+    .register-left {
+      text-align: center;
+      width: 90%;
+      margin: auto;
+
+      p {
+        font-size: 12px;
+      }
+
+      button {
+        display: none;
+      }
+    }
   }
 
   .login-register {
     margin-top: 5px;
     color: black;
+
     font-weight: 600;
   }
 }
@@ -893,13 +903,50 @@ footer {
   min-height: 50vh;
 
   .filter-container {
-    background-color: wheat;
-
     .showcase-details {
       .filter-img-container {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+      }
+
+      .showcase-names {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .profilemessage {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .dates-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .show-note {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        margin: 20px auto;
+
+        .showProfile {
+          padding: 10px 10px;
+          border-radius: 5px;
+          background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+          text-transform: capitalize;
+          color: $white;
+        }
+
+        .addNote {
+          padding: 10px 10px;
+          border-radius: 5px;
+          background: linear-gradient(135deg, #72a5ff 0%, #28bdf7 100%);
+          text-transform: capitalize;
+          color: $white;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -1107,9 +1154,8 @@ footer {
   }
 }
 
-
 // showcase
-.showcase {
+.showcaseResult, .searchResult {
   width: 93%;
   margin: 20px auto auto auto;
 
@@ -1128,7 +1174,7 @@ footer {
       justify-content: center;
       top: -50px;
       position: relative;
-     
+
       img {
         border-radius: 50%;
         width: 100px;
@@ -1139,7 +1185,7 @@ footer {
     .showcaseDetails {
       margin-top: 10px;
       text-align: center;
-    
+
       position: relative;
       top: -40px;
 
@@ -1212,7 +1258,75 @@ footer {
   }
 }
 
+// ADD NOTES
+
+.addNotes{
+  width: 93%;
+  margin: 20px auto auto auto;
+.note-container{
+  .note-upper{
+    text-align: center;
+    margin: 20px 0px;
+    background: cornflowerblue;
+    padding: 20px 30px;
+    p{
+      color: $white
+    }
+  }
+
+  .note-lower{
+    form{
+      .form-control {
+        width: 100%;
+        margin: auto;
+    
+        input {
+          width: 100%;
+          margin: auto auto 10px auto;
+          height: 40px;
+          padding: 10px;
+          border-radius: 4px;
+          outline: none;
+          border: 1px solid $black;
+        }
+
+        textarea{
+          width: 100%;
+          margin: auto auto 10px auto;
+          border: 1px solid $black;
+          padding: 10px;
+          border-radius: 4px;
+          outline: none;
+        }
+      }
+
+      button{
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        margin: auto;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+    }
+  }
+}
+}
 
 
-@import 'tablet';
-@import 'desktop';
+//Search Result Search
+
+
+.searchResult{
+  width: 93%;
+  margin: 20px auto auto auto;
+}
+
+@import "tablet";
+@import "desktop";

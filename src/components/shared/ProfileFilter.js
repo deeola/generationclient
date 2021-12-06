@@ -6,6 +6,7 @@ const ProfileFilter = () => {
   const profileContext = useContext(ProfileContext);
   const { filtered, loading } = profileContext;
 
+
   return (
     <section className="filteredProfiles">
       {filtered !== null && !loading ? (
@@ -21,12 +22,11 @@ const ProfileFilter = () => {
                 }}
                 className="filter-img-container"
               >
-                {/* <img alt="" src={profile.imageLink}></img> */}
+                
               </div>
               <div className="showcase-details-container">
                 <div className="showcase-names">
-                  <p>{profile.firstname}</p>
-                  <p>{profile.lastname}</p>
+                  <p>{profile.firstname} { profile.lastname}</p>
                 </div>
                 <p className="profilemessage">{profile.profileMessage}</p>
                 <div className="dates-container">
@@ -38,12 +38,12 @@ const ProfileFilter = () => {
                   </p>
                 </div>
               </div>
-              <div className="edit-show-delete">
+              <div className="show-note">
                 <NavLink className="showProfile" to={`/search/${profile._id}`}>
                   Show profile
                 </NavLink>
                 <NavLink
-                  className="deleteProfile"
+                  className="addNote"
                   to={`/addNotes/${profile._id}`}
                 >
                   ADD NOTES
@@ -53,7 +53,12 @@ const ProfileFilter = () => {
           ))}
         </div>
       ) : (
-        ""
+        <div className='noResultFound'>
+          <p>No Result Found</p>
+          <div className='backToHome'>
+            <NavLink to='/'>Back to Home</NavLink>
+          </div>
+        </div>
       )}
     </section>
   );

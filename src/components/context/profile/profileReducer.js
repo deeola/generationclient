@@ -10,7 +10,8 @@ import {
   GET_PROFILES,
   CLEAR_PROFILES,
   GET_ALLPROFILES,
-  ADD_NOTES
+  ADD_NOTES,
+  LIGHT_CANDLE
 } from "../types";
 
 export default (state, action) => {
@@ -38,6 +39,14 @@ export default (state, action) => {
         ...state,
         notes: state.notes.map((note) =>
         note._id === action.payload._id ? action.payload : note
+      ),
+        loading : false
+      };
+      case LIGHT_CANDLE:
+      return {
+        ...state,
+        candles: state.candles.map((candle) =>
+        candle._id === action.payload._id ? action.payload : candle
       ),
         loading : false
       };
